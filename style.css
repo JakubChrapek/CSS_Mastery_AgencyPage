@@ -1,6 +1,35 @@
 * {
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-family), sans-serif;
+  margin: 0;
+}
+
+:root {
+  --font-family: 'Lato';
+  --font-1: 1rem;
+  --font-2: 1.25rem;
+  --font-3: 1.5rem;
+  --font-4: 2rem;
+
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 48px;
+  --spacing-6: 64px;
+  --spacing-7: 96px;
+  --spacing-8: 128px;
+
+  --color-primary: hsl(160deg, 100%, 30%);
+  --color-gold-lighter: hsl(45deg, 100%, 50%);
+  --color-gold-darker: hsl(45deg, 100%, 40%);
+
+  --color-gray-100: hsl(0deg, 0%, 100%);
+  --color-gray-200: hsl(0deg, 0%, 60%);
+  --color-gray-300: hsl(0deg, 0%, 40%);
+  --color-gray-400: hsl(0deg, 0%, 30%);
+  --color-gray-500: hsl(0deg, 0%, 10%);
+  --color-gray-600: hsl(0deg, 0%, 0%);
 }
 
 html,
@@ -9,4 +38,81 @@ body {
   padding: 0;
 }
 
-/* Add styles here! */
+header {
+  padding: var(--spacing-6) 0 var(--spacing-5);
+  border-bottom: 5px solid var(--color-gray-400);
+}
+
+.max-width-wrapper {
+  max-width: 767px;
+  margin: 0 auto;
+}
+
+header > .max-width-wrapper {
+  padding-left: var(--spacing-2);
+}
+
+.title {
+  font-size: var(--font-4);
+  margin-bottom: var(--spacing-5);
+}
+
+.intro-chunk {
+  font-size: var(--font-1);
+  width: 40%;
+}
+
+@media (max-width: 767px) {
+  .intro-chunk {
+    width: 100%;
+  }
+}
+
+.intro-chunk p {
+  line-height: 1.5;
+}
+
+.intro-chunk strong {
+  color: var(--color-primary);
+}
+
+* + p {
+  margin-top: 1em;
+}
+
+main {
+  background-color: var(--color-gray-200);
+  padding: var(--spacing-5) var(--spacing-3);
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.card {
+  background-color: var(--color-gray-100);
+  padding: var(--spacing-1) var(--spacing-2) var(--spacing-2) var(--spacing-2);
+  border-bottom: 5px solid var(--color-gray-400);
+}
+
+.indented-heading {
+  background-color: var(--color-gold-lighter);
+  width: max-content;
+  max-width: 100%;
+  font-size: var(--font-2);
+  font-weight: 900;
+  padding: var(--spacing-2) var(--spacing-3);
+  border-bottom: 5px solid var(--color-gold-darker);
+  margin-left: calc(-2 * var(--spacing-2));
+}
+
+@media (max-width: 1025px) {
+  main {
+    padding: var(--spacing-5) 0;
+  }
+  .indented-heading {
+    margin-left: -16px;
+    padding: var(--spacing-2);
+  }
+}
